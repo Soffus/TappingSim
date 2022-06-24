@@ -1,0 +1,113 @@
+getgenv().AutoTap = false;
+getgenv().AutoRebirth = false;
+getgenv().AutoEgg = false;
+getgenv().AutoEnchant = false;
+
+
+local remotePath = game:GetService("ReplicatedStorage").Events;
+
+function doTap()
+    spawn(function()
+        while AutoTap == true do
+            remotePath.Tap:InvokeServer()
+            wait()
+        end
+    end)
+end
+
+function doEgg()
+    spawn(function()
+        while AutoEgg == true do
+
+            local args = {
+                [1] = {
+                    [1] = "Death Cow",
+                    [2] = "Death Deer",
+                    [3] = "Death Cat"
+                },
+                [2] = "Death Egg",
+                [3] = 0
+            }
+            remotePath.HatchEgg:InvokeServer(unpack(args))
+            wait()
+        end
+    end)
+end
+
+function doRebirth(rebirthAmount)
+    spawn(function()
+        while AutoRebirth == true do
+            local args = {[1] = (rebirthAmount)}
+            game:GetService("ReplicatedStorage").Events.Rebirth:FireServer(unpack(args))
+            wait()
+        end
+    end)
+end
+
+function doEnchant()
+    spawn(function()
+        while AutoEnchant == true do
+            local args = {
+                [1] = "8600bba2-df77-4a39-aa86-fcc147471736"
+            }
+            remotePath.EnchantPet:InvokeServer(unpack(args))
+            wait()
+        end
+    end)
+end
+
+local Flux = loadstring(game:HttpGet"https://raw.githubusercontent.com/dawid-scripts/UI-Libs/main/fluxlib.txt")()
+
+_G.closeBind = Enum.KeyCode.C
+
+local win = Flux:Window("Tapping Sim", "In BETA", Color3.fromRGB(255, 110, 48), Enum.KeyCode.RightShift)
+local tab = win:Tab("Farming Functions", "http://www.roblox.com/asset/?id=6023426915")
+
+tab:Label("Beta GUI - Tapping Sim")
+tab:Line()
+
+tab:Toggle("Auto Tapping", "Automatically taps for u, so u can be lazy", false, function(bool)
+    getgenv().AutoTap = bool
+    print('Auto Tap is: ', bool);
+    if bool then
+        doTap();
+    end
+end)
+
+tab:Toggle("Auto Egg (Death)", "Automatically open Death egg for u", false, function(bool)
+    getgenv().AutoEgg = bool
+    print('Auto Egg is: ', bool);
+    if bool then
+        doEgg();
+    end
+end)
+
+tab:Toggle("Auto Enchant (Test)", "Automatically enchant your shit pets for u, u garbage", false, function(bool)
+    getgenv().AutoEnchant = bool
+    print('Auto Enchant is: ', bool);
+    if bool then
+        doEnchant();
+    end
+end)
+
+local selectedRebirth
+tab:Dropdown("Rebirth amount", {"1","5","10","20","100","500","2000","4500"}, function(value)
+    selectedRebirth = value;
+    end)
+
+tab:Toggle("Auto Rebirth", "Automatically rebirth for u", false, function(bool)
+    getgenv().AutoRebirth = bool
+    print('Auto Rebirth is: ', bool);
+    if bool and selectedRebirth then
+        doRebirth(selectedRebirth);
+    end
+end)
+
+tab:Slider("Walkspeed", "Not scripted, so dont work", 0, 100,16,function(t)
+print(t)
+end)
+
+win:Tab("Pets", "http://www.roblox.com/asset/?id=6022668888")
+win:Tab("Others", "http://www.roblox.com/asset/?id=6022668888")
+win:Tab("Updates", "http://www.roblox.com/asset/?id=6023426915")
+win:Tab("Discord", "http://www.roblox.com/asset/?id=6023426915")
