@@ -61,12 +61,16 @@ local Flux = loadstring(game:HttpGet"https://raw.githubusercontent.com/dawid-scr
 _G.closeBind = Enum.KeyCode.C
 
 local win = Flux:Window("Tapping Sim", "In BETA", Color3.fromRGB(255, 110, 48), Enum.KeyCode.RightShift)
-local tab = win:Tab("Farming Functions", "http://www.roblox.com/asset/?id=6023426915")
+local tab = win:Tab1("Farming Functions", "http://www.roblox.com/asset/?id=6023426915")
 
-tab:Label("Beta GUI - Tapping Sim")
-tab:Line()
+tab1:Label("Beta GUI - Tapping Sim")
+tab1:Line()
 
-tab:Toggle("Auto Tapping", "Automatically taps for u, so u can be lazy", false, function(bool)
+
+--- Tab 1 --- 
+
+
+tab1:Toggle("Auto Tapping", "Automatically taps for u, so u can be lazy", false, function(bool)
     getgenv().AutoTap = bool
     print('Auto Tap is: ', bool);
     if bool then
@@ -74,28 +78,11 @@ tab:Toggle("Auto Tapping", "Automatically taps for u, so u can be lazy", false, 
     end
 end)
 
-tab:Toggle("Auto Egg (Death)", "Automatically open Death egg for u", false, function(bool)
-    getgenv().AutoEgg = bool
-    print('Auto Egg is: ', bool);
-    if bool then
-        doEgg();
-    end
-end)
-
-tab:Toggle("Auto Enchant (Test)", "Automatically enchant your shit pets for u, u garbage", false, function(bool)
-    getgenv().AutoEnchant = bool
-    print('Auto Enchant is: ', bool);
-    if bool then
-        doEnchant();
-    end
-end)
-
 local selectedRebirth
-tab:Dropdown("Rebirth amount", {"1","5","10","20","100","500","2000","4500"}, function(value)
+tab1:Dropdown("Rebirth amount", {"1","5","10","20","100","500","2000","4500"}, function(value)
     selectedRebirth = value;
     end)
-
-tab:Toggle("Auto Rebirth", "Automatically rebirth for u", false, function(bool)
+tab1:Toggle("Auto Rebirth", "Automatically rebirth for u", false, function(bool)
     getgenv().AutoRebirth = bool
     print('Auto Rebirth is: ', bool);
     if bool and selectedRebirth then
@@ -103,11 +90,38 @@ tab:Toggle("Auto Rebirth", "Automatically rebirth for u", false, function(bool)
     end
 end)
 
-tab:Slider("Walkspeed", "Not scripted, so dont work", 0, 100,16,function(t)
+tab1:Toggle("Auto Enchant", "Coming soon", false, function(bool)
+    getgenv().AutoEnchant = bool
+    print('Auto Enchant is: ', bool);
+    if bool then
+        doEnchant();
+    end
+end)
+
+--- Tab 2 ---
+
+tab1:Label("------ Pets ------")
+tab1:Line()
+
+tab2:Toggle("Auto Egg (Death)", "Automatically open Death egg for u", false, function(bool)
+    getgenv().AutoEgg = bool
+    print('Auto Egg is: ', bool);
+    if bool then
+        doEgg();
+    end
+end)
+
+
+--- Tab 3 ---
+
+tab1:Label("------ Others ------")
+tab1:Line()
+
+tab3:Slider("Walkspeed", "Not scripted, so dont work", 0, 100,16,function(t)
 print(t)
 end)
 
-win:Tab("Pets", "http://www.roblox.com/asset/?id=6022668888")
-win:Tab("Others", "http://www.roblox.com/asset/?id=6022668888")
-win:Tab("Updates", "http://www.roblox.com/asset/?id=6023426915")
-win:Tab("Discord", "http://www.roblox.com/asset/?id=6023426915")
+win:Tab2("Pets", "http://www.roblox.com/asset/?id=6022668888")
+win:Tab3("Others", "http://www.roblox.com/asset/?id=6022668888")
+win:Tab4("Updates", "http://www.roblox.com/asset/?id=6023426915")
+win:Tab5("Discord", "http://www.roblox.com/asset/?id=6023426915")
