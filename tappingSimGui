@@ -62,10 +62,10 @@ _G.closeBind = Enum.KeyCode.C
 
 local win = Flux:Window("Tapping Sim", "In BETA", Color3.fromRGB(255, 110, 48), Enum.KeyCode.RightShift)
 local tab = win:Tab("Farming Functions", "http://www.roblox.com/asset/?id=6023426915")
-local tab2 = win:Tab("Pets", "http://www.roblox.com/asset/?id=6022668888")
-local tab3 = win:Tab("Others", "http://www.roblox.com/asset/?id=6022668888")
-local tab4 = win:Tab("Updates", "http://www.roblox.com/asset/?id=6023426915")
-local tab5 = win:Tab("Discord", "http://www.roblox.com/asset/?id=6023426915")
+local tab = win:Tab("Pets", "http://www.roblox.com/asset/?id=6022668888")
+local tab = win:Tab("Others", "http://www.roblox.com/asset/?id=6022668888")
+local tab = win:Tab("Updates", "http://www.roblox.com/asset/?id=6023426915")
+local tab = win:Tab("Discord", "http://www.roblox.com/asset/?id=6023426915")
 
 
 
@@ -105,10 +105,10 @@ end)
 
 --- Tab 2 ---
 
-tab2:Label("------ Pets ------")
-tab2:Line()
+tab:Label("------ Pets ------")
+tab:Line()
 
-tab2:Toggle("Auto Egg (Death)", "Automatically open Death egg for u", false, function(bool)
+tab:Toggle("Auto Egg (Death)", "Automatically open Death egg for u", false, function(bool)
     getgenv().AutoEgg = bool
     print('Auto Egg is: ', bool);
     if bool then
@@ -119,9 +119,9 @@ end)
 
 --- Tab 3 ---
 
-tab3:Label("------ Others ------")
-tab3:Line()
+tab:Label("------ Others ------")
+tab:Line()
 
-tab3:Slider("Walkspeed", "Not scripted, so dont work", 0, 100,16,function(t)
+tab:Slider("Walkspeed", "Not scripted, so dont work", 0, 100,16,function(t)
 print(t)
 end)
