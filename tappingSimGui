@@ -67,14 +67,15 @@ local tab3 = win:Tab3("Others", "http://www.roblox.com/asset/?id=6022668888")
 local tab4 = win:Tab4("Updates", "http://www.roblox.com/asset/?id=6023426915")
 local tab5 = win:Tab5("Discord", "http://www.roblox.com/asset/?id=6023426915")
 
-tab1:Label("Beta GUI - Tapping Sim")
-tab1:Line()
+
 
 
 --- Tab 1 --- 
 
+tab:Label("Beta GUI - Tapping Sim")
+tab:Line()
 
-tab1:Toggle("Auto Tapping", "Automatically taps for u, so u can be lazy", false, function(bool)
+tab:Toggle("Auto Tapping", "Automatically taps for u, so u can be lazy", false, function(bool)
     getgenv().AutoTap = bool
     print('Auto Tap is: ', bool);
     if bool then
@@ -83,10 +84,10 @@ tab1:Toggle("Auto Tapping", "Automatically taps for u, so u can be lazy", false,
 end)
 
 local selectedRebirth
-tab1:Dropdown("Rebirth amount", {"1","5","10","20","100","500","2000","4500"}, function(value)
+tab:Dropdown("Rebirth amount", {"1","5","10","20","100","500","2000","4500"}, function(value)
     selectedRebirth = value;
     end)
-tab1:Toggle("Auto Rebirth", "Automatically rebirth for u", false, function(bool)
+tab:Toggle("Auto Rebirth", "Automatically rebirth for u", false, function(bool)
     getgenv().AutoRebirth = bool
     print('Auto Rebirth is: ', bool);
     if bool and selectedRebirth then
@@ -94,7 +95,7 @@ tab1:Toggle("Auto Rebirth", "Automatically rebirth for u", false, function(bool)
     end
 end)
 
-tab1:Toggle("Auto Enchant", "Coming soon", false, function(bool)
+tab:Toggle("Auto Enchant", "Coming soon", false, function(bool)
     getgenv().AutoEnchant = bool
     print('Auto Enchant is: ', bool);
     if bool then
@@ -104,8 +105,8 @@ end)
 
 --- Tab 2 ---
 
-tab1:Label("------ Pets ------")
-tab1:Line()
+tab2:Label("------ Pets ------")
+tab2:Line()
 
 tab2:Toggle("Auto Egg (Death)", "Automatically open Death egg for u", false, function(bool)
     getgenv().AutoEgg = bool
@@ -118,8 +119,8 @@ end)
 
 --- Tab 3 ---
 
-tab1:Label("------ Others ------")
-tab1:Line()
+tab3:Label("------ Others ------")
+tab3:Line()
 
 tab3:Slider("Walkspeed", "Not scripted, so dont work", 0, 100,16,function(t)
 print(t)
