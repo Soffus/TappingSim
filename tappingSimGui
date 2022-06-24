@@ -62,6 +62,10 @@ _G.closeBind = Enum.KeyCode.C
 
 local win = Flux:Window("Tapping Sim", "In BETA", Color3.fromRGB(255, 110, 48), Enum.KeyCode.RightShift)
 local tab = win:Tab1("Farming Functions", "http://www.roblox.com/asset/?id=6023426915")
+local tab = win:Tab2("Pets", "http://www.roblox.com/asset/?id=6022668888")
+local tab = win:Tab3("Others", "http://www.roblox.com/asset/?id=6022668888")
+local tab = win:Tab4("Updates", "http://www.roblox.com/asset/?id=6023426915")
+local tab = win:Tab5("Discord", "http://www.roblox.com/asset/?id=6023426915")
 
 tab1:Label("Beta GUI - Tapping Sim")
 tab1:Line()
@@ -120,8 +124,3 @@ tab1:Line()
 tab3:Slider("Walkspeed", "Not scripted, so dont work", 0, 100,16,function(t)
 print(t)
 end)
-
-win:Tab2("Pets", "http://www.roblox.com/asset/?id=6022668888")
-win:Tab3("Others", "http://www.roblox.com/asset/?id=6022668888")
-win:Tab4("Updates", "http://www.roblox.com/asset/?id=6023426915")
-win:Tab5("Discord", "http://www.roblox.com/asset/?id=6023426915")
